@@ -6,30 +6,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Employee {
-
 	private String employeeId;
-	private String firstName;
-	private String lastName;
-	private String idNumber;
-	private String address;
+        private PersonalInfo personalInfo;
 	
-	private int yearJoined;
+        private int yearJoined;
 	private int monthJoined;
 	private int dayJoined;
 	private int monthWorkingInYear;
 	
-	private boolean isForeigner;
-	private boolean gender; //true = Laki-laki, false = Perempuan
-	
-	private int monthlySalary;
+        private int monthlySalary;
 	private int otherMonthlyIncome;
 	private int annualDeductible;
-	
-	private String spouseName;
-	private String spouseIdNumber;
-
-	private List<String> childNames;
-	private List<String> childIdNumbers;
+        
+	private Spouse spouse;
+	private List<Child> childs;
 	
 	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender) {
 		this.employeeId = employeeId;
