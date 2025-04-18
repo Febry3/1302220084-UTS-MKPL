@@ -12,30 +12,28 @@ package com.mycompany.taxcalculator_1302220084;
 // */
 public class TaxFunction {
 
+    private final static int MAX_CHILD_NOT_TAXED = 3;
+    private final static int MAX_MONTH_IN_YEAR = 12;
+    private final static double TAX_RATE = 12;
+    private final static int ADDITION_PER_CHILD = 1500000;
+    private final static int NON_TAXABLE_INCOME = 54000000;
+    private final static int NON_TAXABLE_ADDITION_FOR_NON_MARRIED = 54000000;
+
     public static int calculateTax(Employee employee) {
         int tax = 0;
-        int numberOfChildren = employee.getChildren().size();
+        int numberOfChildren = employee.getChildren().size() > 3 ? employee.getChildren().size() : MAX_CHILD_NOT_TAXED;
 
-        if (employee.getMonthWorkingInYear() > 12) {
+        if (employee.getMonthWorkingInYear() > MAX_MONTH_IN_YEAR) {
             System.err.println("More than 12 month working per year");
         }
 
-        if (numberOfChildren > 3) {
-            numberOfChildren = 3;
-        }
-
         if (employee.getSpouse() != null) {
-            tax = (int) Math.round(0.05 * (((employee.getMonthlySalary() + employee.getOtherMonthlyIncome()) * employee.getMonthWorkingInYear()) - employee.getAnnualDeductible() - (54000000 + 4500000 + (numberOfChildren * 1500000))));
+            tax = (int) Math.round(TAX_RATE * (((employee.getMonthlySalary() + employee.getOtherMonthlyIncome()) * employee.getMonthWorkingInYear()) - employee.getAnnualDeductible() - (NON_TAXABLE_INCOME + NON_TAXABLE_ADDITION_FOR_NON_MARRIED + (numberOfChildren * ADDITION_PER_CHILD))));
         } else {
-            tax = (int) Math.round(0.05 * (((employee.getMonthlySalary() + employee.getOtherMonthlyIncome()) * employee.getMonthWorkingInYear()) - employee.getAnnualDeductible() - 54000000));
+            tax = (int) Math.round(TAX_RATE * (((employee.getMonthlySalary() + employee.getOtherMonthlyIncome()) * employee.getMonthWorkingInYear()) - employee.getAnnualDeductible() - NON_TAXABLE_INCOME));
         }
 
-        if (tax < 0) {
-            return 0;
-        } else {
-            return tax;
-        }
-
+        if (tax < 0) return 0;
+        return tax;
     }
-
 }

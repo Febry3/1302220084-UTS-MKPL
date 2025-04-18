@@ -1,8 +1,10 @@
+
 package com.mycompany.taxcalculator_1302220084;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
+
 
 public class Employee {
 
@@ -46,10 +48,7 @@ public class Employee {
                 break;
         }
         
-        this.monthlySalary = personalInfo.isForeigner() ? (int)(initialSalary * 1.5) : initialSalary ;
-        if (personalInfo.isForeigner()) {
-
-        }
+        this.monthlySalary = personalInfo.isForeigner() ? (int)(initialSalary * 1.5) : initialSalary;
     }
 
     public void setAnnualDeductible(int deductible) {
