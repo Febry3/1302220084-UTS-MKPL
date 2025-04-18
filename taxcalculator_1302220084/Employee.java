@@ -31,21 +31,24 @@ public class Employee {
 //	 * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
 //	 */
     public void setMonthlySalary(int grade) {
-        if (grade == 1) {
-            monthlySalary = 3000000;
-            if (personalInfo.isForeigner()) {
-                monthlySalary = (int) (3000000 * 1.5);
-            }
-        } else if (grade == 2) {
-            monthlySalary = 5000000;
-            if (personalInfo.isForeigner()) {
-                monthlySalary = (int) (3000000 * 1.5);
-            }
-        } else if (grade == 3) {
-            monthlySalary = 7000000;
-            if (personalInfo.isForeigner()) {
-                monthlySalary = (int) (3000000 * 1.5);
-            }
+        int initialSalary = 0;
+        switch (grade) {
+            case 1:
+                initialSalary = 3000000;
+                break;
+            case 2:
+                initialSalary = 5000000;
+                break;
+            case 3:
+                initialSalary = 7000000;
+                break;
+            default:
+                break;
+        }
+        
+        this.monthlySalary = personalInfo.isForeigner() ? (int)(initialSalary * 1.5) : initialSalary ;
+        if (personalInfo.isForeigner()) {
+
         }
     }
 
@@ -100,7 +103,7 @@ public class Employee {
     public List<Child> getChildren() {
         return children;
     }
-    
+
     public int getAnnualIncomeTax() {
 
         //Menghitung berapa lama pegawai bekerja dalam setahun ini, jika pegawai sudah bekerja dari tahun sebelumnya maka otomatis dianggap 12 bulan.
