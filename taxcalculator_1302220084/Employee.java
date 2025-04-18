@@ -9,9 +9,7 @@ public class Employee {
 	private String employeeId;
         private PersonalInfo personalInfo;
 	
-        private int yearJoined;
-	private int monthJoined;
-	private int dayJoined;
+        private LocalDate joinedDate;
 	private int monthWorkingInYear;
 	
         private int monthlySalary;
