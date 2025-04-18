@@ -1,7 +1,6 @@
 package com.mycompany.taxcalculator_1302220084;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class Employee {
         this.employeeId = employeeId;
         this.personalInfo = personalInfo;
         this.joinedDate = joinedDate;
-        this.childs = new LinkedList<>();
+        this.children = new LinkedList<>();
     }
 
 //	/**
@@ -107,12 +106,12 @@ public class Employee {
         //Menghitung berapa lama pegawai bekerja dalam setahun ini, jika pegawai sudah bekerja dari tahun sebelumnya maka otomatis dianggap 12 bulan.
         LocalDate date = LocalDate.now();
 
-        if (date.getYear() == yearJoined) {
-            monthWorkingInYear = date.getMonthValue() - monthJoined;
+        if (date.getYear() == this.joinedDate.getYear()) {
+            monthWorkingInYear = date.getMonthValue() - this.joinedDate.getMonthValue();
         } else {
             monthWorkingInYear = 12;
         }
 
-        return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), childIdNumbers.size());
+        return TaxFunction.calculateTax(this);
     }
 }
