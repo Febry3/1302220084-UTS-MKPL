@@ -2,8 +2,9 @@
 UTS Mata Kuliah MKPL - Bad Smell && Refactoring
 
 ## Keterangan Penamaan Branch
-- [BadSmell-ClassName]: Refactor fungsi-fungsi yang ada pada satu class yang sama dan memiliki jenis Bad Smell yang sama.
-- [BadSmell-FunctionName]: Refactor secara spesifik pada suatu fungsi.
+- [BadSmell-ClassName]: Refactor fungsi-fungsi yang ada pada satu class yang sama dan memiliki jenis Bad Smell yang sama
+- [BadSmell-FunctionName]: Refactor secara spesifik pada suatu fungsi
+- Di beberapa branch terdapat comment pada commitannya
 
 ## Referensi
 - [Refactoring Guru](https://refactoring.guru/refactoring)
