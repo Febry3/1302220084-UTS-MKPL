@@ -58,7 +58,7 @@ public class PersonalInfo {
         this.address = address;
     }
 
-    public boolean isIsForeigner() {
+    public boolean isForeigner() {
         return isForeigner;
     }
 
