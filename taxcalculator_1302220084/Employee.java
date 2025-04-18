@@ -18,7 +18,7 @@ public class Employee {
     private int annualDeductible;
 
     private Spouse spouse;
-    private List<Child> childs;
+    private List<Child> children;
 
     public Employee(String employeeId, PersonalInfo personalInfo, LocalDate joinedDate) {
         this.employeeId = employeeId;
@@ -34,17 +34,17 @@ public class Employee {
     public void setMonthlySalary(int grade) {
         if (grade == 1) {
             monthlySalary = 3000000;
-            if (isForeigner) {
+            if (personalInfo.isForeigner()) {
                 monthlySalary = (int) (3000000 * 1.5);
             }
         } else if (grade == 2) {
             monthlySalary = 5000000;
-            if (isForeigner) {
+            if (personalInfo.isForeigner()) {
                 monthlySalary = (int) (3000000 * 1.5);
             }
         } else if (grade == 3) {
             monthlySalary = 7000000;
-            if (isForeigner) {
+            if (personalInfo.isForeigner()) {
                 monthlySalary = (int) (3000000 * 1.5);
             }
         }
@@ -63,9 +63,45 @@ public class Employee {
     }
 
     public void addChild(Child child) {
-        childs.add(child);
+        children.add(child);
     }
 
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public PersonalInfo getPersonalInfo() {
+        return personalInfo;
+    }
+
+    public LocalDate getJoinedDate() {
+        return joinedDate;
+    }
+
+    public int getMonthWorkingInYear() {
+        return monthWorkingInYear;
+    }
+
+    public int getMonthlySalary() {
+        return monthlySalary;
+    }
+
+    public int getOtherMonthlyIncome() {
+        return otherMonthlyIncome;
+    }
+
+    public int getAnnualDeductible() {
+        return annualDeductible;
+    }
+
+    public Spouse getSpouse() {
+        return spouse;
+    }
+
+    public List<Child> getChildren() {
+        return children;
+    }
+    
     public int getAnnualIncomeTax() {
 
         //Menghitung berapa lama pegawai bekerja dalam setahun ini, jika pegawai sudah bekerja dari tahun sebelumnya maka otomatis dianggap 12 bulan.
